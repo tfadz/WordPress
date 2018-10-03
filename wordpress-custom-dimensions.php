@@ -19,11 +19,13 @@
       $gaTags = join( ', ', $gaTags );
 
       // Get Sections
-      $current_post_cats = get_the_category( get_the_ID() );
-      $gaCats = wp_list_pluck( $current_post_cats, 'cat_name');
+      $getcats = get_the_category( get_the_ID() );
+      $gaCats = wp_list_pluck( $getcats, 'cat_name');
       $gaCat = join( ',', $gaCats );
       }
   ?>
+
+<!-- GA Analytics code using above variables -->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -38,3 +40,4 @@
         'dimension7': '<?=$gaModDate?>',
         'dimension9': '<?=$gaCat?>'
     });
+  </script>
