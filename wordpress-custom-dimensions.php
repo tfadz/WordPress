@@ -1,31 +1,31 @@
 <?php
   // Pulling examples from a post to use for Custom Dimensions
-    if(is_single()) {
-        // Get author
-      $getauthor = $posts[0]->post_author;
-      $gaAuthor = get_the_author_meta('display_name', $getauthor);
+	if(is_single()) {
+		// Get author
+		$gaAuthor = get_the_author_meta('display_name', $getauthor);
 
-      // Get Pub Date
-      $getdate = $posts[0]->post_date;
-      $gaDate = get_the_date($getdate);
+		// Get Pub Date
+		$getdate = $posts[0]->post_date;
+		$gaDate = get_the_date($getdate);
 
-      // Get Mod Date
-      $getmoddate = $posts[0]->post_date_modified;
-      $gaModDate = get_the_modified_date('Y-m-d H:i:s', $getmoddate);
+		// Get Date Modified
+		$gaModDate = get_the_modified_date('Y-m-d H:i:s');
 
-      // Get Tags
-      $current_post_tags = wp_get_post_tags( get_the_ID() );
-      $gaTags = wp_list_pluck( $current_post_tags, 'name' );
-      $gaTags = join( ', ', $gaTags );
+		// Get Tags
+		$current_post_tags = wp_get_post_tags( get_the_ID() );
+		$gaTags = wp_list_pluck( $current_post_tags, 'name' );
+		$gaTags = join( ', ', $gaTags );
 
-      // Get Sections
-      $getcats = get_the_category( get_the_ID() );
-      $gaCats = wp_list_pluck( $getcats, 'cat_name');
-      $gaCat = join( ',', $gaCats );
-      }
-  ?>
+		// Get Sections
+		$current_post_cats = get_the_category( get_the_ID() );
+		$gaCats = wp_list_pluck( $current_post_cats, 'cat_name');
+		$gaCat = join( ', ', $gaCats );
 
-<!-- GA Analytics code using above variables -->
+		// Get Post ID
+		$gaPostId = get_the_ID();
+	}
+
+// GA Analytics code using above variables
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -38,6 +38,7 @@
         'dimension2': '<?=$gaTags?>',
         'dimension6': '<?=$gaDate?>',
         'dimension7': '<?=$gaModDate?>',
-        'dimension9': '<?=$gaCat?>'
+        'dimension9': '<?=$gaCat?>',
+        'dimension8': '<?=$gaPostId?>'
     });
   </script>
