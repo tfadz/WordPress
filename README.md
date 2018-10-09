@@ -1,8 +1,7 @@
-# wordpress
-Wordpress code nuggets
+# A collection of Wordpress Code Nuggets
 
-# wordpress custom dimensions
+# GA Custom dimensions
 Wordpress code for creating custom dimensions with Google Analytics
 
-# wordpress enabling SVG format
+# Enabling SVG format
 Enabling svg files without using a plugin
