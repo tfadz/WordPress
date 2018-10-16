@@ -2,7 +2,8 @@
   // Pulling examples from a post to use for Custom Dimensions
 	if(is_single()) {
 		// Get author
-		$gaAuthor = get_the_author_meta('display_name', $getauthor);
+		$author_id = get_queried_object()->post_author;
+    $gaAuthor = get_the_author_meta('display_name', $author_id);
 
 		// Get Pub Date
 		$getdate = $posts[0]->post_date;
