@@ -35,8 +35,9 @@
 
     ga('create', 'UA-your-ga-account', 'auto');
     ga('send', 'pageview', {
-        'dimension1': '<?=$gaAuthor?>',
-        'dimension2': '<?=$gaTags?>',
+      // use wp_json so names that have commas will not error out
+        'dimension1': <?php echo wp_json_encode($gaAuthor); ?>, 
+        'dimension2': <?php echo wp_json_encode($gaTags); ?>,
         'dimension6': '<?=$gaDate?>',
         'dimension7': '<?=$gaModDate?>',
         'dimension9': '<?=$gaCat?>',
