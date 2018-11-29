@@ -12,7 +12,7 @@ In Google Tag manager..
 
 5. In your AMP file make sure the markup looks something like this.
 
-<!-- This file contains the variables used in the AMP code -->
+<!-- This file contains the variables used in the AMP code (see wordpress-custom-dimensions.php) -->
 <?php include get_template_directory() . '/custom-dim.php'; ?>
 
 <!-- AMP Analytics -->
