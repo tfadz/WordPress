@@ -1,6 +1,6 @@
 Google Tag Manager & AMP
 
-In Google Tag manager..
+In Google Tag Manager..
 
 1. Create a new tag for the Google Analytics acount that will be used.
 
@@ -19,7 +19,7 @@ In Google Tag manager..
 <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
 <!-- Google Tag Manager -->
-<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PV6QMG5&gtm.url=SOURCE_URL" data-credentials="include">
+<amp-analytics config="<your GTM account goes here>" data-credentials="include">
 
     <script type="application/json">
         {
