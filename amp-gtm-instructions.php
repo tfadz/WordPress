@@ -19,8 +19,22 @@ Trigger All Pages. (In our code below we put in inactive dimensions for dimensio
 <!-- This file contains the variables used in the AMP code (see wordpress-custom-dimensions.php) -->
 <?php include get_template_directory() . '/custom-dim.php'; ?>
 
+<!-- Non AMP Google Tag Manager Data Layer Variables -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'pageview',
+        'dimension1': <?php echo wp_json_encode($gaAuthor); ?>,
+        'dimension2': <?php echo wp_json_encode($gaTags); ?>,
+        'dimension6': '<?=$gaDate?>',
+        'dimension7': '<?=$gaModDate?>',
+        'dimension8': '<?=$gaPostId?>'
+      });
+    </script>
+
 <!-- AMP Analytics -->
 <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
 
 <!-- Google Tag Manager -->
 <amp-analytics config="<your GTM account goes here>" data-credentials="include">
