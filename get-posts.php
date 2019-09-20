@@ -54,4 +54,35 @@ if( $loop->have_posts() ) : ?>
   wp_reset_postdata();
   ?>
 
+<!-- Get post with tag but only show that it has this taxonomy Goes with the above ^ Replaces article -->
+  <?php if( has_term( 'podcast', 'media_types' ) ) { ?>
+  <article class="bi-feed__item podcast">
+    <a href="<?php the_permalink(); ?>">
+      <figure><img src="<?php echo $backgroundImg[0]; ?>" alt=""></figure>
+      <h2><?php the_title() ?></h2>
+    </a>
+    <footer class="cta"><a href="#">Listen to Podcast</a></footer>
+  </article>
+
+
+<?php } elseif( has_term( 'blog', 'media_types' ) ) { ?>
+  <article class="bi-feed__item blog-post">
+    <a href="<?php the_permalink(); ?>">
+      <figure><img src="<?php echo $backgroundImg[0]; ?>" alt=""></figure>
+      <h2><?php the_title() ?></h2>
+    </a>
+    <footer class="cta"><a href="#">Read Full Story</a></footer>
+  </article>
+
+
+<?php } else  { ?>
+  <article class="bi-feed__item">
+    <a href="<?php the_permalink(); ?>">
+      <figure><img src="<?php echo $backgroundImg[0]; ?>" alt=""></figure>
+      <h2><?php the_title() ?></h2>
+    </a>
+    <footer class="cta"><a href="#">Read Full Story</a></footer>
+  </article>
+<?php } ?>
+
 
