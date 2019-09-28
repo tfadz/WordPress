@@ -1,0 +1,1 @@
+<img class="site-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/bahai_logo_black.svg" alt="">
